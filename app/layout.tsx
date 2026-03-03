@@ -45,6 +45,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <meta name="naver-site-verification" content="834ea16c71e41bf75ff1729811977e929cad5693" />
       </head>
       <body className="min-h-screen bg-[#f9fafb] text-gray-900 font-sans selection:bg-blue-100 selection:text-blue-900" suppressHydrationWarning>
         {/* Global Navigation Header */}
