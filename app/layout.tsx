@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico', // 기본 아이콘 경로
   },
+  other: {
+    name: "google-adsense-account",
+    content: "ca-pub-5378247298190063"
+  }
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
@@ -46,6 +50,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <meta name="naver-site-verification" content="834ea16c71e41bf75ff1729811977e929cad5693" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5378247298190063" crossOrigin="anonymous"></script>
       </head>
       <body className="min-h-screen bg-[#f9fafb] text-gray-900 font-sans selection:bg-blue-100 selection:text-blue-900" suppressHydrationWarning>
         {/* Global Navigation Header */}
