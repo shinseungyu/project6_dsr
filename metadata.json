@@ -1,0 +1,5 @@
+{
+  "name": "부동산 대출 및 DSR 계산기",
+  "description": "2026년 최신 대출 규제를 반영한 부동산 대출 LTV, DSR 및 원리금 균등 상환액 계산기입니다.",
+  "requestFramePermissions": []
+}
