@@ -16,11 +16,20 @@ export const metadata: Metadata = {
     siteName: 'DSR 계산기 | 내 대출 한도 바로 확인',
     locale: 'ko_KR',
     type: 'website',
+    images: [
+      {
+        url: 'https://newsfixr.com/thumb.webp',
+        width: 1200,
+        height: 630,
+        alt: 'DSR 계산기 썸네일',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'DSR 계산기 | 내 대출 한도 바로 확인',
     description: '2026년 최신 대출 규제를 반영한 부동산 대출 LTV, DSR 및 원리금 균등 상환액 계산기입니다.',
+    images: ['https://newsfixr.com/thumb.webp'],
   },
   authors: [{ name: 'DSR 계산기' }],
   publisher: 'DSR 계산기',
@@ -70,6 +79,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             <div className="flex justify-between h-16">
               <div className="flex">
                 <Link href="/" className="flex-shrink-0 flex items-center font-bold text-black text-lg tracking-tight">
+                  <img src="/logo.webp" alt="DSR 계산기 로고" className="h-8 w-auto mr-2" />
                   DSR 계산기
                 </Link>
                 <div className="ml-10 flex space-x-8">
