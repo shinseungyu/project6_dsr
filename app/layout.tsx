@@ -22,6 +22,17 @@ export const metadata: Metadata = {
     title: 'DSR 계산기 | 내 대출 한도 바로 확인',
     description: '2026년 최신 대출 규제를 반영한 부동산 대출 LTV, DSR 및 원리금 균등 상환액 계산기입니다.',
   },
+  authors: [{ name: 'DSR 계산기' }],
+  publisher: 'DSR 계산기',
+  formatDetection: {
+    telephone: false,
+    date: false,
+    address: false,
+    email: false,
+  },
+  verification: {
+    google: '여기에_구글_인증코드_입력',
+  },
   icons: {
     icon: '/favicon.ico', // 기본 아이콘 경로
   },
