@@ -1,19 +1,21 @@
 import type {Metadata} from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import './globals.css'; // Global styles
 
 export const metadata: Metadata = {
-  title: 'DSR 계산기 | 내 대출 한도 바로 확인',
-  description: '2026년 최신 대출 규제를 반영한 부동산 대출 LTV, DSR 및 원리금 균등 상환액 계산기입니다.',
+    title: 'DSR 계산기 | 내 대출 한도 바로 확인',
+  description: '2026년 최신 스트레스 DSR 3단계 규제를 반영한 대출 한도 계산기입니다. LTV, 원리금 균등 상환액, 수도권 및 비규제지역 대출 가능 금액을 즉시 확인하세요.',
+  keywords: ['DSR 계산기', '2026 대출 규제', '스트레스 DSR 2단계', '스트레스 DSR 3단계', 'LTV 계산기', '주택담보대출 한도', '부동산 대출 한도', '신생아 특례대출 DSR', '디딤돌 대출 LTV'],
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://newsfixr.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'DSR 계산기 | 내 대출 한도 바로 확인',
-    description: '2026년 최신 대출 규제를 반영한 부동산 대출 LTV, DSR 및 원리금 균등 상환액 계산기입니다.',
+      title: 'DSR 계산기 | 내 대출 한도 바로 확인',
+    description: '2026년 최신 스트레스 DSR 3단계 규제를 반영한 대출 한도 계산기입니다. 내 집 마련을 위한 정확한 대출 설계를 시작하세요.',
     url: '/',
-    siteName: 'DSR 계산기 | 내 대출 한도 바로 확인',
+    siteName: 'DSR 계산기',
     locale: 'ko_KR',
     type: 'website',
     images: [
@@ -27,8 +29,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DSR 계산기 | 내 대출 한도 바로 확인',
-    description: '2026년 최신 대출 규제를 반영한 부동산 대출 LTV, DSR 및 원리금 균등 상환액 계산기입니다.',
+      title: 'DSR 계산기 | 내 대출 한도 바로 확인',
+    description: '2026년 최신 스트레스 DSR 3단계 규제를 반영한 대출 한도 계산기입니다.',
     images: ['https://newsfixr.com/thumb.webp'],
   },
   authors: [{ name: 'DSR 계산기' }],
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
     google: '여기에_구글_인증코드_입력',
   },
   icons: {
-    icon: '/favicon.ico', // 기본 아이콘 경로
+    icon: '/favicon.ico',
   },
   other: {
     name: "google-adsense-account",
@@ -52,25 +54,56 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: 'DSR 계산기 | 내 대출 한도 바로 확인',
-    description: '2026년 최신 대출 규제를 반영한 부동산 대출 LTV, DSR 및 원리금 균등 상환액 계산기입니다.',
-    applicationCategory: 'FinanceApplication',
-    operatingSystem: 'All',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://newsfixr.com',
-  };
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'DSR 계산기',
+      description: '2026년 최신 스트레스 DSR 3단계 규제를 반영한 대출 한도 계산기입니다.',
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'All',
+      url: process.env.NEXT_PUBLIC_SITE_URL || 'https://newsfixr.com',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': [
+        {
+          '@type': 'Question',
+          'name': 'DSR 40% 규제는 모든 대출에 적용되나요?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': '대부분의 시중은행 대출에는 적용되지만 전세자금대출, 예적금담보대출 등은 제외됩니다. 신생아 특례대출 등은 DSR 대신 DTI 60%가 적용됩니다.'
+          }
+        },
+        {
+          '@type': 'Question',
+          'name': '스트레스 DSR 3단계란 무엇인가요?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': '미래 금리 상승 리스크를 반영해 가산 금리(1.5%)를 100% 적용하여 대출 한도를 산정하는 제도입니다. 2026년 전면 시행됩니다.'
+          }
+        }
+      ]
+    }
+  ];
 
   return (
     <html lang="ko">
       <head>
-        <script
+        <Script
+          id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          strategy="beforeInteractive"
         />
         <meta name="naver-site-verification" content="834ea16c71e41bf75ff1729811977e929cad5693" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5378247298190063" crossOrigin="anonymous"></script>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5378247298190063"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </head>
       <body className="min-h-screen bg-[#f9fafb] text-gray-900 font-sans selection:bg-blue-100 selection:text-blue-900" suppressHydrationWarning>
         {/* Global Navigation Header */}
