@@ -1,6 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import postsData from "@/data/posts.json";
+import { Info, HelpCircle } from "lucide-react";
 
 export default function HomeCalculator() {
   // Input States
@@ -319,9 +322,47 @@ export default function HomeCalculator() {
             </div>
           </section>
           
+          <section>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold text-black border-l-4 border-blue-600 pl-3">
+                대출 정보 & 최신 소식
+              </h2>
+              <Link href="/board" className="text-sm font-semibold text-blue-600 hover:underline">
+                전체 보기 →
+              </Link>
+            </div>
+            <div className="flex flex-col gap-4 mb-20">
+              {(postsData as any[]).slice(0, 3).map((post: any) => (
+                <Link 
+                  key={post.id} 
+                  href={`/board?id=${post.id}`} 
+                  className="flex flex-col gap-3 rounded-xl border border-gray-200 bg-white p-6 transition-all hover:bg-gray-50 hover:shadow-sm"
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600">
+                      {post.category}
+                    </span>
+                    <span className="text-xs text-gray-400">{post.date}</span>
+                  </div>
+                  <h3 className="text-base font-bold text-gray-900 leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed line-clamp-2">
+                    {post.summary}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
           <div className="text-center text-xs text-gray-400 pt-12 border-t border-gray-200">
             <p>본 계산기의 결과는 참고용이며, 실제 금융기관의 대출 심사 결과와 다를 수 있습니다. 정확한 한도 및 금리는 해당 금융기관에 문의하시기 바랍니다.</p>
-            <p className="mt-2">&copy; 2026 부동산 대출 및 DSR 계산기. All rights reserved.</p>
+            <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs">
+              <Link href="/privacy-policy" className="hover:text-gray-900 transition-colors">개인정보 처리방침</Link>
+              <Link href="/terms-of-service" className="hover:text-gray-900 transition-colors">이용약관</Link>
+              <Link href="/cookie-policy" className="hover:text-gray-900 transition-colors">쿠키 정책</Link>
+            </div>
+            <p className="mt-4">&copy; 2026 newsfixr.com · 문의: tlsfkaus0711@gmail.com</p>
           </div>
         </div>
       </footer>
