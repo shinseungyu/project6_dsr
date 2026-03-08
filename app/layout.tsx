@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-      title: 'DSR 계산기 | 내 대출 한도 바로 확인',
+    title: 'DSR 계산기 | 내 대출 한도 바로 확인',
     description: '2026년 최신 스트레스 DSR 3단계 규제를 반영한 대출 한도 계산기입니다. 내 집 마련을 위한 정확한 대출 설계를 시작하세요.',
     url: '/',
-    siteName: 'DSR 계산기',
+    siteName: 'DSR 계산기 | 내 대출 한도 바로 확인',
     locale: 'ko_KR',
     type: 'website',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-      title: 'DSR 계산기 | 내 대출 한도 바로 확인',
+    title: 'DSR 계산기 | 내 대출 한도 바로 확인',
     description: '2026년 최신 스트레스 DSR 3단계 규제를 반영한 대출 한도 계산기입니다.',
     images: ['https://newsfixr.com/thumb.webp'],
   },
@@ -46,6 +46,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
   other: {
     name: "google-adsense-account",
