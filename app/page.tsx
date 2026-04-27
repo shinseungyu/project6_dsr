@@ -296,6 +296,13 @@ export default function HomeCalculator() {
                   <p className="text-xs text-gray-500 leading-relaxed">네일샵 창업부터 운영까지 실전 정보 제공</p>
                 </div>
               </a>
+              <a href="https://carelec.kr" target="_blank" rel="noopener noreferrer" className="flex gap-4 items-start p-5 rounded-xl border border-gray-200 bg-gray-50 hover:border-blue-400 hover:bg-blue-50 transition-colors no-underline">
+                <span className="text-3xl">🔌</span>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm mb-1">캐릭 | 자동차 전장 정보</p>
+                  <p className="text-xs text-gray-500 leading-relaxed">전기차·자동차 전장 부품 최신 정보 제공</p>
+                </div>
+              </a>
             </div>
           </section>
 
